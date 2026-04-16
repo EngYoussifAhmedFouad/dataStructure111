@@ -1,0 +1,56 @@
+#pragma once
+#include "LinkedQueue.h"
+template<typename T>
+class CancelQueue : public LinkedQueue<T>
+{
+public:
+    bool CancelOrder(int ID)
+    {
+        if (this->isEmpty())
+            return false;
+
+        if (this->frontPtr->getItem()->GetID() == ID)
+        {
+            Node<T>* pdel = this->frontPtr;
+
+            this->frontPtr = this->frontPtr->getNext();
+
+            if (this->frontPtr == nullptr)
+                this->backPtr = nullptr;
+
+            delete pdel;
+            this->count--;
+            return true;
+        }
+
+        Node<T>* ptr = this->frontPtr;
+        Node<T>* pdel = nullptr;
+
+        while (ptr->getNext() != nullptr)
+        {
+            if (ptr->getNext()->getItem()->GetID() == ID)
+            {
+                pdel = ptr->getNext();
+
+                ptr->setNext(pdel->getNext());
+
+                if (pdel == this->backPtr)
+                {
+                    this->backPtr = ptr;
+                }
+
+                delete pdel;
+                this->count--;
+                return true;
+            }
+
+            ptr = ptr->getNext();
+        }
+
+        return false;
+    }
+
+
+
+};
+
