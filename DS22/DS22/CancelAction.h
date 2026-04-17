@@ -16,8 +16,7 @@ public:
 
     virtual void Act(Restaurant* pRest) override
     {
-        // pRest->CancelNormalOrder(OrderID);
+        pRest->CancelOrder(OrderID);
     }
 
 };
-

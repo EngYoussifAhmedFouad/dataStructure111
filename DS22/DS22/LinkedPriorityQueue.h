@@ -5,7 +5,7 @@
 using namespace std;
 
 template <typename T>
-class LinkedPriorityQueue:public PriQueueADT<T>
+class LinkedPriorityQueue :public PriQueueADT<T>
 {
 protected:
 	PriNode<T>* frontPtr;
@@ -99,4 +99,3 @@ public:
 		while (dequeue(temp));
 	}
 };
-

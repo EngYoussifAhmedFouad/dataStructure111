@@ -23,4 +23,3 @@ public:
 	int getPriority() const { return priority; }
 	PriNode<T>* getNext() const { return next; }
 };
-

@@ -13,7 +13,7 @@ private:
 
 public:
 
-	ArrayStack(int MaxSize):STACK_SIZE(MaxSize)
+	ArrayStack(int MaxSize=1000) :STACK_SIZE(MaxSize)
 	{
 		items = new T[STACK_SIZE];
 		count = 0;
@@ -52,7 +52,7 @@ public:
 		count--;
 		return true;
 	}  // end pop
-	
+
 	bool peek(T& TopEntry) const
 	{
 		if (isEmpty()) return false;
@@ -60,12 +60,12 @@ public:
 		TopEntry = items[top];
 		return true;
 	}  // end peek
-	
+
 	int GetCount() const
 	{
 		return count;
 	}
-	
+
 	void Print() const
 	{
 		for (int i = 0; i < count; i++)
@@ -83,7 +83,7 @@ public:
 	{
 		delete[]items;
 	}
-	
+
 	//Copy constructor
 	ArrayStack(const ArrayStack<T>& S) :STACK_SIZE(S.STACK_SIZE)
 	{

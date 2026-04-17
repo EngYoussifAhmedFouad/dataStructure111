@@ -5,7 +5,7 @@ class PriQueueADT
 public:
 	virtual bool isEmpty() const = 0;
 
-	virtual bool enqueue(const T& newEntry, int newPriority )=0;
+	virtual bool enqueue(const T& newEntry, int newPriority) = 0;
 
 	virtual bool dequeue(T& FrontEntry) = 0;
 
@@ -13,4 +13,3 @@ public:
 
 	virtual ~PriQueueADT() {}
 };
-

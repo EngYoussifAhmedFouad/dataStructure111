@@ -2,18 +2,19 @@
 #include "Action.h"
 #include "GenericDefs.h"
 
-class Order;
+#include"Order.h"
 
 class RequestAction : public Action
 {
 private:
     int OrderID;
-    ORD_TYP type;
+    ORD_TYPE type;
     int size;
     double money;
+    
 
 public:
-    RequestAction(int id, ORD_TYP typ, int sz, double mon, int time)
+    RequestAction(int id, ORD_TYPE typ, int sz, double mon, int time)
     {
         OrderID = id;
         type = typ;
@@ -26,7 +27,8 @@ public:
 
     virtual void Act(Restaurant* pRest) override
     {
-        // Order* pOrd = new Order(OrderID, type, size, money, actionTime);
-        // pRest->AddOrder(pOrd); 
+         Order* pOrd = new Order(OrderID, type, size, money, actionTime);
+         pRest->AddOrder(pOrd); 
+         
     }
 };

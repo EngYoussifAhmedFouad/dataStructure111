@@ -9,7 +9,7 @@ public:
         if (this->isEmpty())
             return false;
 
-        if (this->frontPtr->getItem()->GetID() == ID)
+        if (this->frontPtr->getItem()->Get_ID() == ID)
         {
             Node<T>* pdel = this->frontPtr;
 
@@ -28,7 +28,7 @@ public:
 
         while (ptr->getNext() != nullptr)
         {
-            if (ptr->getNext()->getItem()->GetID() == ID)
+            if (ptr->getNext()->getItem()->Get_ID() == ID)
             {
                 pdel = ptr->getNext();
 
@@ -53,4 +53,3 @@ public:
 
 
 };
-
